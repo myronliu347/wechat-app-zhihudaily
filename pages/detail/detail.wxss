@@ -25,7 +25,10 @@
 }
 
 .art-content{
-    padding: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
     font-size: 14px;
     color: #616466;
+    width: 100%;
 }

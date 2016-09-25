@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container index-bg">
+<view class="container">
   <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" class="banners" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{banner}}">
