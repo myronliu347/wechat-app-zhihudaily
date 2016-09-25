@@ -10,16 +10,20 @@
     </block>
   </swiper>
   <view class="news-item-container">
-    <text class="sub-title">今日热闻</text>
-    <navigator url="../detail/detail?id={{item.id}}" wx:for="{{list}}">
-      <view class="news-item" >
-        <view class="news-item-left">
-          <text class="news-item-title">{{item.title}}</text>
+    <block wx:for="{{list}}" wx:for-index="id">
+      <text wx:if="{{item.header}}" class="sub-title">{{item.header}}</text>
+      <navigator wx:else url="../detail/detail?id={{item.id}}">
+        <view class="news-item" >
+          <view class="news-item-left">
+            <text class="news-item-title">{{item.title}}</text>
+          </view>
+          <view class="news-item-right">
+            <image src="{{item.images[0]}}" class="news-image"/>
+          </view>
         </view>
-        <view class="news-item-right">
-          <image src="{{item.images[0]}}" class="news-image"/>
-        </view>
-      </view>
-    </navigator>
+      </navigator>
+    </block>
+    <button type="primary" class="load-btn" size="mini" loading="{{loading}}" plain="{{plain}}" bindtap="loadMore"> 更多 </button>
   </view>
+  
 </view>
