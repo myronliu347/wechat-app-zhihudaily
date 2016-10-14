@@ -6,6 +6,6 @@
         <view class="art-source">{{art.image_source}}</view>
     </view>
     <view class="art-content">
-        不能识别 HTML， 所以内容无法显示 /(ㄒoㄒ)/~~
+      {{art.body}}
     </view> 
 </view>

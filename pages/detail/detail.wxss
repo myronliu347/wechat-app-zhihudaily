@@ -25,9 +25,11 @@
 }
 
 .art-content{
-    padding-top: 16px;
-    padding-bottom: 16px;
     font-size: 14px;
     color: #616466;
-    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    background-color: #FFF;
+    line-height: 1.5;
 }
