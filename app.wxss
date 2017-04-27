@@ -1,3 +1,4 @@
+@import "/wxParse/wxParse.wxss";
 /**app.wxss**/
 .container {
   display: flex;
