@@ -1,3 +1,4 @@
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
   data: {
     art: {},
@@ -17,31 +18,29 @@ Page({
       success (res) {
         if (res.data.body) {
           var body = res.data.body;
-          body = body.match( /<p>.*?<\/p>/g );
-          var ss = [];
-          if (body) {
-            for( var i = 0, len = body.length; i < len;i++ ) {
-            ss[ i ] = /<img.*?>/.test( body[ i ] );
-            if( ss[ i ] ) {
-              body[ i ] = body[ i ].match( /(http:|https:).*?\.(jpg|jpeg|gif|png)/ );
-            } else {
-              body[ i ] = body[ i ].replace( /<p>/g, '' )
-              .replace( /<\/p>/g, '' )
-              .replace( /<strong>/g, '' )
-              .replace( /<\/strong>/g, '' )
-              .replace( /<a.*?\/a>/g, '' )
-              .replace( /&nbsp;/g, ' ' )
-              .replace( /&ldquo;/g, '"' )
-              .replace( /&rdquo;/g, '"' );
-            }
-          }
-          }
-          res.data.body = body
+          WxParse.wxParse('body', 'html', body, that, 5);
         }
          that.setData({
            art: res.data
          })
       }
     })
+  },
+  wxParseTagATap: function(e){
+    //页面URL点击处理
+    var href = e.currentTarget.dataset.src;
+    console.log(href);
+    //var ids = href.split("/");
+    //我们可以在这里进行一些路由处理
+    //wx.navigateTo({
+    //  url: '../detail/detail?id=' + ids[ids.length-1]
+    //})
+    //if(href.indexOf(index) > 0){
+      // wx.redirectTo({
+      //   url: '../index/index'
+      // })
+
+    //}
+
   }
 })
